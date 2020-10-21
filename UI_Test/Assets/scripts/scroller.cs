@@ -9,15 +9,18 @@ public class scroller : MonoBehaviour
 {
     public ScrollRect myScrRect;
 
-    public GameObject cardPrefab;
+    public GameObject cardPrefab1;
+    public GameObject cardPrefab2;
+
 
     public GameObject content;
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < 10; i++)
         {
-            Instantiate(cardPrefab, content.transform);
+            Instantiate(cardPrefab2, content.transform);
+            Instantiate(cardPrefab1, content.transform);
         }
 
         myScrRect.verticalNormalizedPosition = 1f;
@@ -30,12 +33,13 @@ public class scroller : MonoBehaviour
 
         if (myScrRect.verticalNormalizedPosition <= 0.01f)
         {
-            for (int i = 0; i < 20; i++)
-            {
-                Instantiate(cardPrefab, content.transform);
+            for (int i = 0; i < 10; i++)
+            {               
+                Instantiate(cardPrefab2, content.transform);           
+                Instantiate(cardPrefab1, content.transform);
             }
 
-            myScrRect.verticalNormalizedPosition = 0.05f;
+            myScrRect.verticalNormalizedPosition = 0.1f;
         }
     }
 }
